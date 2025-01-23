@@ -6,7 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-
+import { useEffect } from "react";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -17,12 +17,19 @@ export const links: LinksFunction = () => [
     crossOrigin: "anonymous",
   },
   {
+    // Burada href yerinde google fonts bağlantısını ekledim! 
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
   },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+
+  // Renk Temasını Başlangıç değeri olarak Dark Mode olarak Aldık!!!
+  // Başlangıç olarak dark mode'u aktif hale getirdik.
+    useEffect(() => {
+    document.documentElement.classList.add('dark'); }, []);
+
   return (
     <html lang="en">
       <head>
@@ -31,7 +38,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      {/* Şimdi burada body içerisine className vererek */}
+      {/* varsayılan font olarak lato ayarlıyoruz. */}
+      <body className="font-sans">
         {children}
         <ScrollRestoration />
         <Scripts />

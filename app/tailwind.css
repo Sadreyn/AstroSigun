@@ -4,8 +4,8 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
+  /* Varsayılan font olarak font-sans ekledik !  */
+  @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
