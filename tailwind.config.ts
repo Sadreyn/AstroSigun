@@ -41,7 +41,7 @@ export default {
           dark: '#E3E8F3', // Açık mavi beyaz, gece modunda yumuşak okuma
         },
         highlight: {
-          light: '#6B7C9B', // Mavi-gri tonları, gökyüzündeki bulutlar gibi
+          light: '#1B6B9B', // Mavi-gri tonları, gökyüzündeki bulutlar gibi
           dark: '#548dba', // Derin mavi gri tonları, gökyüzünün karanlık yönü
         },
 

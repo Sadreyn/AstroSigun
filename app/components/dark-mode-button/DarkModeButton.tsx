@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 const DarkModeButton: React.FC = () => {
   // darkMode'un ilk değerini localStorage'dan alıyoruz
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       const storedPreference = window.localStorage.getItem('darkMode');
-      return storedPreference ? JSON.parse(storedPreference) : true;  // Varsayılan olarak dark mode'u true yapıyoruz
+      return storedPreference ? JSON.parse(storedPreference) : true; // Varsayılan olarak dark mode'u true yapıyoruz
     }
     return true;
   });
@@ -35,9 +36,14 @@ const DarkModeButton: React.FC = () => {
   return (
     <button
       onClick={handleToggle}
-      className="fixed top-4 right-4 p-2 bg-primary-light dark:bg-secondary-dark text-white rounded"
+      className="fixed top-4 right-4 p-2 bg-primary-dark dark:bg-secondary-dark text-white rounded"
     >
-      {darkMode ? 'Light Mode' : 'Dark Mode'}
+      {/* Dark Mode aktifse Ay ikonu, değilse Güneş ikonu */}
+      {darkMode ? (
+        <MoonIcon className="h-6 w-6 text-dark-400" aria-hidden="true" />
+      ) : (
+        <SunIcon className="h-6 w-6 text-dark-400" aria-hidden="true" />
+      )}
     </button>
   );
 };
